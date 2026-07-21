@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Contact — {{ SITE_NAME }}{% endblock %}
+{% block meta_description %}Get in touch — LuxeStore demo contact page (UI only, no backend submission).{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container py-4">
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <p class="eyebrow mb-2">Contact</p>
+        <h1 class="h1 mb-3">Say hello</h1>
+        <p class="text-muted-custom mb-4" style="line-height:1.8;">
+          This form is UI-only — submitting it won't send an email or hit a backend.
+          It exists to show a complete, styled contact flow as part of the portfolio piece.
+        </p>
+        <div class="d-flex flex-column gap-3">
+          <div class="d-flex gap-3 align-items-start">
+            <i class="bi bi-envelope feature-icon mt-1"></i>
+            <div>
+              <h3 class="h6 mb-0">Email</h3>
+              <p class="small text-muted-custom mb-0">hello@example.com</p>
+            </div>
+          </div>
+          <div class="d-flex gap-3 align-items-start">
+            <i class="bi bi-github feature-icon mt-1"></i>
+            <div>
+              <h3 class="h6 mb-0">GitHub</h3>
+              <p class="small text-muted-custom mb-0">github.com/istiakrahman15</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="card-luxe p-4 p-md-5">
+          <form id="contact-form" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="contact-name" class="form-label small">Name</label>
+                <input type="text" id="contact-name" class="form-control form-control-luxe" placeholder="Your name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="contact-email" class="form-label small">Email</label>
+                <input type="email" id="contact-email" class="form-control form-control-luxe" placeholder="you@example.com" required>
+              </div>
+              <div class="col-12">
+                <label for="contact-subject" class="form-label small">Subject</label>
+                <input type="text" id="contact-subject" class="form-control form-control-luxe" placeholder="What's this about?">
+              </div>
+              <div class="col-12">
+                <label for="contact-message" class="form-label small">Message</label>
+                <textarea id="contact-message" rows="5" class="form-control form-control-luxe" style="border-radius:20px;" placeholder="Tell me a bit more…" required></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-luxe-gold w-100 w-sm-auto">Send message</button>
+                <p id="contact-feedback" class="small text-gold mt-3 d-none">Thanks — this is a UI-only demo, so nothing was actually sent.</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("contact-feedback").classList.remove("d-none");
+    this.reset();
+  });
+</script>
+{% endblock %}

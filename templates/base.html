@@ -1,0 +1,109 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ SITE_NAME }} — {{ SITE_TAGLINE }}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}LuxeStore is a demo storefront built with Django 5 — a portfolio project showcasing clean catalog browsing, search, and filtering.{% endblock %}">
+  <meta name="theme-color" content="#0b0c10">
+
+  {% block og_tags %}
+  <meta property="og:title" content="{{ SITE_NAME }}">
+  <meta property="og:description" content="Considered objects, quietly made. A Django portfolio demo store.">
+  <meta property="og:type" content="website">
+  {% endblock %}
+
+  <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- LuxeStore design system -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <div id="loading-bar"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-luxe navbar-expand-lg py-3">
+    <div class="container">
+      <a class="navbar-brand brand-mark" href="{% url 'store:home' %}">Luxe<span>Store</span></a>
+
+      <button class="navbar-toggler border-0 text-reset" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto my-3 my-lg-0 gap-lg-1">
+          <li class="nav-item"><a class="nav-link nav-link-luxe {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'store:home' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-luxe {% if request.resolver_match.url_name == 'product_list' %}active{% endif %}" href="{% url 'store:product_list' %}">Products</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-luxe {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'store:about' %}">About</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-luxe {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'store:contact' %}">Contact</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark and light mode">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+          <a href="{% url 'store:product_list' %}" class="btn btn-luxe-gold btn-sm d-none d-sm-inline-flex">Browse catalog</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-luxe">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4">
+          <a href="{% url 'store:home' %}" class="brand-mark d-inline-block mb-3">Luxe<span>Store</span></a>
+          <p class="text-muted-custom small mb-3" style="max-width: 32ch;">A Django 5 portfolio project — a demo storefront with no cart, checkout, or accounts, built to show clean full-stack fundamentals.</p>
+          <div class="d-flex gap-2">
+            <a href="https://github.com/istiakrahman15" target="_blank" rel="noopener" class="social-dot" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://devistiak.eu.cc" target="_blank" rel="noopener" class="social-dot" aria-label="Portfolio site"><i class="bi bi-globe2"></i></a>
+            <a href="mailto:hello@example.com" class="social-dot" aria-label="Email"><i class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 class="text-uppercase small mb-3" style="letter-spacing:.08em;">Shop</h6>
+          <a class="footer-link" href="{% url 'store:product_list' %}">All Products</a>
+          <a class="footer-link" href="{% url 'store:home' %}#categories">Categories</a>
+          <a class="footer-link" href="{% url 'store:home' %}#featured">Featured</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h6 class="text-uppercase small mb-3" style="letter-spacing:.08em;">Company</h6>
+          <a class="footer-link" href="{% url 'store:about' %}">About</a>
+          <a class="footer-link" href="{% url 'store:contact' %}">Contact</a>
+          <a class="footer-link" href="/admin/">Admin</a>
+        </div>
+        <div class="col-lg-4">
+          <h6 class="text-uppercase small mb-3" style="letter-spacing:.08em;">Stay in the loop</h6>
+          <p class="text-muted-custom small">UI-only newsletter form — see the homepage for the full signup.</p>
+        </div>
+      </div>
+      <hr class="my-4" style="border-color: var(--border);">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <p class="small text-muted-custom mb-0">&copy; {% now "Y" %} LuxeStore. A portfolio demo — not a real store.</p>
+        <p class="small text-muted-custom mb-0">Built with Django 5 &amp; Bootstrap 5</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scroll-top-btn" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

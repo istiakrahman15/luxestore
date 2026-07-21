@@ -1,0 +1,23 @@
+{% load static %}
+<div class="card-luxe reveal">
+  <div class="product-media">
+    {% if product.is_featured %}<span class="badge-featured">Featured</span>{% endif %}
+    {% if not product.in_stock %}<span class="badge-oos">Out of Stock</span>{% endif %}
+    {% if product.image %}
+      <img src="{{ product.image.url }}" alt="{{ product.name }}" loading="lazy">
+    {% else %}
+      <div class="product-placeholder">
+        <i class="bi {{ product.category.icon|default:'bi-bag' }} placeholder-glyph"></i>
+      </div>
+    {% endif %}
+  </div>
+  <div class="product-body">
+    <div class="product-cat">{{ product.category.name }}</div>
+    <h3 class="product-name"><a href="{{ product.get_absolute_url }}" class="stretched-link">{{ product.name }}</a></h3>
+    <p class="product-desc">{{ product.display_description }}</p>
+    <div class="d-flex justify-content-between align-items-center mt-2">
+      <span class="product-price">${{ product.price }}</span>
+      <span class="small {% if product.in_stock %}text-muted-custom{% else %}text-danger{% endif %}">{{ product.stock_label }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+Django==5.0.6
+Pillow==12.3.0
+
+# Production / Vercel deployment
+psycopg2-binary==2.9.9   # PostgreSQL driver, used when DATABASE_URL is set
+whitenoise==6.7.0        # Serves static files without a separate web server
+python-dotenv==1.0.1     # Loads .env.local for local Vercel-style env vars

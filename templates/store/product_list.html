@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Products — {{ SITE_NAME }}{% endblock %}
+{% block meta_description %}Browse the full LuxeStore catalog — search by name or filter by category.{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container py-3">
+    <p class="eyebrow mb-2">Catalog</p>
+    <h1 class="h1 mb-4">
+      {% if active_category %}{{ active_category.name }}{% else %}All Products{% endif %}
+    </h1>
+
+    <!-- Filter bar -->
+    <div class="filter-bar mb-4">
+      <form method="get" class="row g-3 align-items-center">
+        <div class="col-12 col-md-5">
+          <div class="input-group">
+            <span class="input-group-text bg-transparent border-0 ps-3" style="color: var(--text-dim);"><i class="bi bi-search"></i></span>
+            <input type="text" name="q" value="{{ query }}" class="form-control form-control-luxe border-0"
+                   placeholder="Search products…" aria-label="Search products">
+          </div>
+        </div>
+        <div class="col-12 col-md-7">
+          <div class="d-flex flex-wrap gap-2">
+            <a href="?{% if query %}q={{ query }}&{% endif %}" class="chip {% if not active_category %}active{% endif %}">All</a>
+            {% for category in categories %}
+              <a href="?category={{ category.slug }}{% if query %}&q={{ query }}{% endif %}"
+                 class="chip {% if active_category.slug == category.slug %}active{% endif %}">
+                <i class="bi {{ category.icon }} me-1"></i>{{ category.name }}
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <p class="text-muted-custom small mb-4">
+      {{ result_count }} product{{ result_count|pluralize }}
+      {% if query %} matching “{{ query }}”{% endif %}
+      {% if active_category %} in {{ active_category.name }}{% endif %}
+    </p>
+
+    {% if products %}
+    <div class="row g-4">
+      {% for product in products %}
+      <div class="col-6 col-md-4 col-lg-3">
+        {% include "store/_product_card.html" %}
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+      <div class="glyph"><i class="bi bi-inboxes"></i></div>
+      <h3 class="h5 mb-2">Nothing here yet</h3>
+      <p class="text-muted-custom mb-3">
+        {% if query or active_category %}
+          No products match those filters. Try a different search or category.
+        {% else %}
+          The catalog is empty. Run <code>python manage.py seed_demo_data</code> to populate it.
+        {% endif %}
+      </p>
+      {% if query or active_category %}
+        <a href="{% url 'store:product_list' %}" class="btn btn-luxe-ghost btn-sm">Clear filters</a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

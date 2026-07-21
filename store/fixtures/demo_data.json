@@ -1,0 +1,375 @@
+[
+{
+  "model": "store.category",
+  "pk": 1,
+  "fields": {
+    "name": "Timepieces",
+    "slug": "timepieces",
+    "description": "Mechanical and quartz watches, built to outlast trends.",
+    "icon": "bi-smartwatch"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 2,
+  "fields": {
+    "name": "Audio",
+    "slug": "audio",
+    "description": "Headphones and speakers tuned for honest sound.",
+    "icon": "bi-boombox"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 3,
+  "fields": {
+    "name": "Leather Goods",
+    "slug": "leather-goods",
+    "description": "Full-grain leather bags and accessories.",
+    "icon": "bi-briefcase"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 4,
+  "fields": {
+    "name": "Home Objects",
+    "slug": "home-objects",
+    "description": "Considered pieces for the desk and the table.",
+    "icon": "bi-cup-hot"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 5,
+  "fields": {
+    "name": "Eyewear",
+    "slug": "eyewear",
+    "description": "Acetate and titanium frames, hand-finished.",
+    "icon": "bi-eyeglasses"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 1,
+  "fields": {
+    "name": "Meridian Automatic",
+    "slug": "meridian-automatic",
+    "category": 1,
+    "description": "The Meridian Automatic pairs a 41mm brushed stainless case with a sapphire crystal and a 42-hour power reserve. A quiet, precise companion for daily wear.",
+    "short_description": "Swiss automatic movement in a brushed steel case.",
+    "price": "428.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": true,
+    "created_at": "2026-07-21T04:21:49.895Z",
+    "updated_at": "2026-07-21T04:21:49.895Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 2,
+  "fields": {
+    "name": "Solstice Chronograph",
+    "slug": "solstice-chronograph",
+    "category": 1,
+    "description": "Solstice brings motorsport styling to the wrist with a fully functional chronograph, luminous hands, and a quick-release strap.",
+    "short_description": "Three-register chronograph with a tachymeter bezel.",
+    "price": "512.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.900Z",
+    "updated_at": "2026-07-21T04:21:49.900Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 3,
+  "fields": {
+    "name": "Aline Minimal",
+    "slug": "aline-minimal",
+    "category": 1,
+    "description": "Aline strips the watch back to essentials: a domed crystal, a matte dial, and a strap made from apple-leather composite.",
+    "short_description": "A clean two-hand dial with a vegan leather strap.",
+    "price": "219.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.905Z",
+    "updated_at": "2026-07-21T04:21:49.905Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 4,
+  "fields": {
+    "name": "Northbound Field Watch",
+    "slug": "northbound-field-watch",
+    "category": 1,
+    "description": "Built for travel, Northbound has a matte titanium case, a high-contrast dial, and an interchangeable NATO strap.",
+    "short_description": "Rugged field watch with a scratch-resistant case.",
+    "price": "265.00",
+    "image": "",
+    "in_stock": false,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.911Z",
+    "updated_at": "2026-07-21T04:21:49.911Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 5,
+  "fields": {
+    "name": "Aria Over-Ear Headphones",
+    "slug": "aria-over-ear-headphones",
+    "category": 2,
+    "description": "Aria delivers a warm, balanced sound signature with 40mm drivers, active noise cancellation, and 30 hours of playback.",
+    "short_description": "Closed-back headphones with memory-foam ear cups.",
+    "price": "349.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": true,
+    "created_at": "2026-07-21T04:21:49.917Z",
+    "updated_at": "2026-07-21T04:21:49.917Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 6,
+  "fields": {
+    "name": "Ember Wireless Earbuds",
+    "slug": "ember-wireless-earbuds",
+    "category": 2,
+    "description": "Ember auto-tunes itself to your ear shape for consistent bass and clarity, with a matte-ceramic charging case.",
+    "short_description": "True wireless earbuds with adaptive EQ.",
+    "price": "189.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": true,
+    "created_at": "2026-07-21T04:21:49.923Z",
+    "updated_at": "2026-07-21T04:21:49.923Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 7,
+  "fields": {
+    "name": "Cast Tabletop Speaker",
+    "slug": "cast-tabletop-speaker",
+    "category": 2,
+    "description": "Cast fills a room evenly from a compact walnut cabinet, with a capacitive touch dial for volume and source switching.",
+    "short_description": "A single-driver speaker with a walnut enclosure.",
+    "price": "299.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.929Z",
+    "updated_at": "2026-07-21T04:21:49.929Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 8,
+  "fields": {
+    "name": "Drift Portable Speaker",
+    "slug": "drift-portable-speaker",
+    "category": 2,
+    "description": "Drift is rated IPX5 and fits in a jacket pocket, with 14 hours of battery life and a fabric-wrapped shell.",
+    "short_description": "Splash-resistant speaker built for travel.",
+    "price": "149.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.935Z",
+    "updated_at": "2026-07-21T04:21:49.935Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 9,
+  "fields": {
+    "name": "Harbor Weekender Bag",
+    "slug": "harbor-weekender-bag",
+    "category": 3,
+    "description": "Harbor is hand-stitched from a single hide, with a canvas interior, a detachable shoulder strap, and space for a two-day trip.",
+    "short_description": "Full-grain leather duffel with brass hardware.",
+    "price": "398.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": true,
+    "created_at": "2026-07-21T04:21:49.940Z",
+    "updated_at": "2026-07-21T04:21:49.940Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 10,
+  "fields": {
+    "name": "Fold Card Wallet",
+    "slug": "fold-card-wallet",
+    "category": 3,
+    "description": "Fold is cut from vegetable-tanned leather that darkens beautifully with age, finished with hand-burnished edges.",
+    "short_description": "A slim wallet that holds six cards and folded cash.",
+    "price": "68.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.945Z",
+    "updated_at": "2026-07-21T04:21:49.945Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 11,
+  "fields": {
+    "name": "Ledger Portfolio",
+    "slug": "ledger-portfolio",
+    "category": 3,
+    "description": "Ledger holds a notebook, loose pages, and a pen loop behind a magnetic flap, wrapped in pebbled leather.",
+    "short_description": "A5 leather portfolio with a magnetic closure.",
+    "price": "145.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.951Z",
+    "updated_at": "2026-07-21T04:21:49.951Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 12,
+  "fields": {
+    "name": "Waylon Belt",
+    "slug": "waylon-belt",
+    "category": 3,
+    "description": "Waylon switches between black and chestnut with a twist of the buckle, cut from a single strip of full-grain leather.",
+    "short_description": "A reversible belt with a brushed steel buckle.",
+    "price": "79.00",
+    "image": "",
+    "in_stock": false,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.957Z",
+    "updated_at": "2026-07-21T04:21:49.957Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 13,
+  "fields": {
+    "name": "Pour Over Carafe Set",
+    "slug": "pour-over-carafe-set",
+    "category": 4,
+    "description": "A slow, deliberate way to make coffee: a hand-blown carafe, a reusable steel filter, and a walnut base that doubles as a trivet.",
+    "short_description": "Borosilicate carafe with a walnut collar.",
+    "price": "86.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": true,
+    "created_at": "2026-07-21T04:21:49.963Z",
+    "updated_at": "2026-07-21T04:21:49.963Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 14,
+  "fields": {
+    "name": "Anchor Desk Lamp",
+    "slug": "anchor-desk-lamp",
+    "category": 4,
+    "description": "Anchor casts warm, even light through a spun-aluminum shade, with a touch-dimmer built into a solid marble base.",
+    "short_description": "A dimmable task lamp with a marble base.",
+    "price": "132.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.969Z",
+    "updated_at": "2026-07-21T04:21:49.969Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 15,
+  "fields": {
+    "name": "Grove Ceramic Mug Set",
+    "slug": "grove-ceramic-mug-set",
+    "category": 4,
+    "description": "Each Grove mug is glazed individually, so no two are quite alike. Dishwasher and microwave safe despite the handmade finish.",
+    "short_description": "Set of two stoneware mugs, glazed by hand.",
+    "price": "54.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.975Z",
+    "updated_at": "2026-07-21T04:21:49.975Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 16,
+  "fields": {
+    "name": "Fold Wool Throw",
+    "slug": "fold-wool-throw",
+    "category": 4,
+    "description": "Woven from lambswool on a traditional loom, Fold is heavy enough for cool evenings and finished with a fringed edge.",
+    "short_description": "A lambswool throw, woven in a houndstooth check.",
+    "price": "118.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.981Z",
+    "updated_at": "2026-07-21T04:21:49.981Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 17,
+  "fields": {
+    "name": "Percy Round Frames",
+    "slug": "percy-round-frames",
+    "category": 5,
+    "description": "Percy is cut from Italian acetate and finished by hand, with spring hinges for a comfortable, forgiving fit.",
+    "short_description": "Hand-polished acetate frames with a keyhole bridge.",
+    "price": "175.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": true,
+    "created_at": "2026-07-21T04:21:49.986Z",
+    "updated_at": "2026-07-21T04:21:49.986Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 18,
+  "fields": {
+    "name": "Dune Sunglasses",
+    "slug": "dune-sunglasses",
+    "category": 5,
+    "description": "Dune pairs a featherweight titanium frame with polarized, UV400 lenses in a gradient tortoise finish.",
+    "short_description": "Titanium sunglasses with polarized lenses.",
+    "price": "210.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.992Z",
+    "updated_at": "2026-07-21T04:21:49.992Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 19,
+  "fields": {
+    "name": "Vista Reading Glasses",
+    "slug": "vista-reading-glasses",
+    "category": 5,
+    "description": "Vista is built for screen time, with a blue-light filtering coating and a flexible titanium core inside the temples.",
+    "short_description": "Lightweight readers with a blue-light filter.",
+    "price": "95.00",
+    "image": "",
+    "in_stock": true,
+    "is_featured": false,
+    "created_at": "2026-07-21T04:21:49.997Z",
+    "updated_at": "2026-07-21T04:21:49.997Z"
+  }
+}
+]

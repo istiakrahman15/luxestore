@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}About — {{ SITE_NAME }}{% endblock %}
+{% block meta_description %}About the LuxeStore project — a Django 5 portfolio demo store.{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <p class="eyebrow mb-2">About</p>
+        <h1 class="h1 mb-4">A storefront built to be read</h1>
+        <p class="text-muted-custom mb-4" style="font-size:1.05rem;line-height:1.8;">
+          LuxeStore isn't a real business — it's a portfolio piece. The goal was to build a
+          storefront that looks like it belongs to a small, considered brand, while keeping the
+          Django code underneath clean enough for another developer to open and understand in
+          five minutes.
+        </p>
+        <p class="text-muted-custom mb-5" style="line-height:1.8;">
+          Deliberately missing: accounts, a cart, checkout, and payments. Adding those would
+          shift the focus from "can this person structure a Django app well" to "can this person
+          wire up a payment provider," which is a different (and much longer) project.
+        </p>
+
+        <div class="row g-4 mb-5">
+          <div class="col-md-4">
+            <div class="card-luxe p-4">
+              <i class="bi bi-diagram-3 feature-icon mb-2 d-block"></i>
+              <h3 class="h6">Two models</h3>
+              <p class="small text-muted-custom mb-0">Category and Product, related with a simple foreign key.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-luxe p-4">
+              <i class="bi bi-sliders feature-icon mb-2 d-block"></i>
+              <h3 class="h6">Branded admin</h3>
+              <p class="small text-muted-custom mb-0">Image previews, search, filters, and ordering — no third-party admin theme.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-luxe p-4">
+              <i class="bi bi-palette feature-icon mb-2 d-block"></i>
+              <h3 class="h6">Hand-built theme</h3>
+              <p class="small text-muted-custom mb-0">CSS variables drive dark/light mode — no theming library.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="newsletter-panel">
+          <p class="eyebrow mb-2">Built by</p>
+          <h2 class="h4 mb-2">Istiak</h2>
+          <p class="text-muted-custom mb-3">Creative developer working across React, Laravel, WordPress, and Django. This project is part of an ongoing portfolio of self-contained builds.</p>
+          <div class="d-flex gap-2 flex-wrap">
+            <a href="https://github.com/istiakrahman15" target="_blank" rel="noopener" class="btn btn-luxe-ghost btn-sm"><i class="bi bi-github me-1"></i>GitHub</a>
+            <a href="https://devistiak.eu.cc" target="_blank" rel="noopener" class="btn btn-luxe-ghost btn-sm"><i class="bi bi-globe2 me-1"></i>Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

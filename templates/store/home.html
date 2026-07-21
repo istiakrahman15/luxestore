@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ SITE_NAME }} — {{ SITE_TAGLINE }}{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container position-relative">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-9">
+        <p class="eyebrow mb-3">A Django 5 portfolio demo store</p>
+        <h1 class="mb-4 mx-auto">Considered objects, <br class="d-none d-md-block">quietly made.</h1>
+        <p class="hero-lede mx-auto mb-4">
+          LuxeStore is a small catalog of watches, audio, leather goods, home objects, and eyewear —
+          built to demonstrate clean Django fundamentals: models, admin, search, and filtering.
+          No cart, no checkout, no accounts — just the shopping browse experience, done properly.
+        </p>
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+          <a href="{% url 'store:product_list' %}" class="btn btn-luxe-gold">
+            Browse the catalog <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+          <a href="{% url 'store:about' %}" class="btn btn-luxe-ghost">About this project</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Products -->
+{% if featured_products %}
+<section id="featured" class="py-5 py-lg-6">
+  <div class="container py-4">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+      <div>
+        <p class="eyebrow mb-2">Featured</p>
+        <h2 class="h1 mb-0">Currently loved</h2>
+      </div>
+      <a href="{% url 'store:product_list' %}" class="btn-luxe-ghost btn d-none d-md-inline-flex">View all</a>
+    </div>
+    <div class="row g-4">
+      {% for product in featured_products %}
+      <div class="col-6 col-md-4 col-lg-3">
+        {% include "store/_product_card.html" %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Categories -->
+<section id="categories" class="py-5 py-lg-6 bg-surface">
+  <div class="container py-4">
+    <p class="eyebrow mb-2">Categories</p>
+    <h2 class="h1 mb-4">Shop by kind</h2>
+    <div class="row g-4">
+      {% for category in categories %}
+      <div class="col-6 col-lg-4">
+        <a href="{{ category.get_absolute_url }}" class="card-luxe category-tile d-block reveal text-reset">
+          <div class="category-icon"><i class="bi {{ category.icon }}"></i></div>
+          <h3 class="h5 mb-1">{{ category.name }}</h3>
+          <p class="text-muted-custom small mb-2">{{ category.description }}</p>
+          <span class="small text-gold">{{ category.product_count }} piece{{ category.product_count|pluralize }} &rarr;</span>
+        </a>
+      </div>
+      {% empty %}
+      <div class="col-12">
+        <div class="empty-state">
+          <div class="glyph"><i class="bi bi-grid"></i></div>
+          <p class="text-muted-custom">No categories yet — add some from the Django admin.</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-5 py-lg-6">
+  <div class="container py-4">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5">
+        <p class="eyebrow mb-2">Why LuxeStore</p>
+        <h2 class="h1 mb-3">Built the way real catalogs are built</h2>
+        <p class="text-muted-custom">
+          This project exists to show working Django patterns — not to sell anything.
+          Every section below maps to something in the codebase: a model, a query, or an admin tweak.
+        </p>
+      </div>
+      <div class="col-lg-7">
+        <div class="feature-row reveal">
+          <i class="bi bi-search feature-icon"></i>
+          <div>
+            <h3 class="h6 mb-1">Real search &amp; filtering</h3>
+            <p class="text-muted-custom small mb-0">Query-string driven search and category filters, powered by Django ORM lookups.</p>
+          </div>
+        </div>
+        <div class="feature-row reveal">
+          <i class="bi bi-moon-stars feature-icon"></i>
+          <div>
+            <h3 class="h6 mb-1">Dark &amp; light mode</h3>
+            <p class="text-muted-custom small mb-0">A CSS-variable theme system toggled with vanilla JS and remembered per browser.</p>
+          </div>
+        </div>
+        <div class="feature-row reveal">
+          <i class="bi bi-shield-check feature-icon"></i>
+          <div>
+            <h3 class="h6 mb-1">Clean admin experience</h3>
+            <p class="text-muted-custom small mb-0">A branded Django admin with image previews, filters, search, and ordering.</p>
+          </div>
+        </div>
+        <div class="feature-row reveal">
+          <i class="bi bi-phone feature-icon"></i>
+          <div>
+            <h3 class="h6 mb-1">Mobile-first &amp; fast</h3>
+            <p class="text-muted-custom small mb-0">Bootstrap 5 grid, no build step, no heavy JS — just HTML, CSS, and a light script.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest Products -->
+<section class="py-5 py-lg-6 bg-surface">
+  <div class="container py-4">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+      <div>
+        <p class="eyebrow mb-2">Just in</p>
+        <h2 class="h1 mb-0">Latest additions</h2>
+      </div>
+      <a href="{% url 'store:product_list' %}" class="btn-luxe-ghost btn d-none d-md-inline-flex">View all</a>
+    </div>
+    {% if latest_products %}
+    <div class="row g-4">
+      {% for product in latest_products %}
+      <div class="col-6 col-md-4 col-lg-3">
+        {% include "store/_product_card.html" %}
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+      <div class="glyph"><i class="bi bi-box-seam"></i></div>
+      <p class="text-muted-custom mb-3">No products yet.</p>
+      <code class="small">python manage.py seed_demo_data</code>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Newsletter (UI only) -->
+<section class="py-5 py-lg-6">
+  <div class="container py-4">
+    <div class="newsletter-panel">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <p class="eyebrow mb-2">Newsletter</p>
+          <h2 class="h2 mb-2">Occasional notes, no spam</h2>
+          <p class="text-muted-custom mb-0">This form is UI-only — it doesn't send anywhere. It's here to demonstrate layout and interaction states.</p>
+        </div>
+        <div class="col-lg-6">
+          <form id="newsletter-form" class="d-flex flex-column flex-sm-row gap-2">
+            <input id="newsletter-email" type="email" required placeholder="you@example.com" class="form-control form-control-luxe flex-grow-1" aria-label="Email address">
+            <button type="submit" class="btn btn-luxe-gold text-nowrap">Subscribe</button>
+          </form>
+          <p id="newsletter-feedback" class="small text-gold mt-2 d-none"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
