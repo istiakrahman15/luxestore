@@ -15,19 +15,6 @@ piece to showcase clean, modular Django development rather than to run a real sh
 
 ---
 
-## Screenshots
-
-> Replace these placeholders with real screenshots after running the project locally.
-
-| Home (dark) | Products | Product detail |
-|---|---|---|
-| `docs/screenshots/home-dark.png` | `docs/screenshots/products.png` | `docs/screenshots/detail.png` |
-
-| Home (light) | Admin |
-|---|---|
-| `docs/screenshots/home-light.png` | `docs/screenshots/admin.png` |
-
----
 
 ## Features
 
